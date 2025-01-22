@@ -1,0 +1,167 @@
+.plans-container {
+  margin-top: -4rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+}
+
+.plans {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.plan {
+  display: flex;
+  flex-direction: column;
+  background: var(--caloryCard);
+  color: rgb(255, 255, 255);
+  gap: 2rem;
+  padding: 1.5rem;
+  width: 15rem;
+}
+.plan:nth-child(2) {
+  background: var(--planCard);
+  transform: scale(1.1);
+}
+.plan > svg {
+  fill: var(--orange);
+  width: 2rem;
+  height: 2rem;
+}
+.plan > :nth-child(2) {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.plan > :nth-child(3) {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.plan > :nth-child(5) {
+  font-size: 0.8rem;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.plans-blur-1 {
+  width: 32rem;
+  height: 23rem;
+  top: 6rem;
+  left: 0;
+}
+
+.plans-blur-2 {
+  width: 32rem;
+  height: 23rem;
+  top: 10rem;
+  right: 0;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.feature > img {
+  width: 1rem;
+}
+
+.plans > :nth-child(2) > svg {
+  fill: white;
+}
+.plans > :nth-child(2) > button {
+  color: orange;
+}
+
+@media screen and (max-width: 768px) {
+  .plans-container {
+    padding: 1rem;
+    margin-top: -3rem;
+  }
+
+  .plans {
+    flex-direction: column;
+    gap: 2rem; /* Stack the plans vertically */
+    align-items: center; /* Center align cards */
+  }
+
+  .plan {
+    width: 80%; /* Make the plan cards larger on smaller screens */
+    max-width: 20rem; /* Set max-width to avoid excessive size */
+    margin-bottom: 2rem;
+    text-align: center; /* Center the content inside the plan */
+  }
+
+  .plan > :nth-child(3) {
+    font-size: 2rem; /* Reduce price font size */
+  }
+
+  .plan > :nth-child(2) {
+    font-size: 0.9rem; /* Adjust name font size */
+  }
+
+  .plans-blur-1,
+  .plans-blur-2 {
+    width: 20rem;
+    height: 15rem;
+    top: 5rem;
+  }
+
+  .features {
+    gap: 0.5rem; /* Reduce the gap between features */
+  }
+
+  .feature > img {
+    width: 0.8rem; /* Smaller tick image */
+  }
+
+  .plans > :nth-child(2) > button {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .plans-container {
+    padding: 1rem;
+  }
+
+  .plans {
+    gap: 1rem; /* Reduce gap between cards */
+  }
+
+  .plan {
+    width: 90%; /* Make the plan cards even larger on very small screens */
+    max-width: 18rem;
+  }
+
+  .plan > :nth-child(3) {
+    font-size: 1.8rem; /* Further reduce price font size */
+  }
+
+  .plan > :nth-child(2) {
+    font-size: 0.8rem; /* Adjust name font size */
+  }
+
+  .plans-blur-1,
+  .plans-blur-2 {
+    width: 18rem;
+    height: 12rem;
+    top: 4rem;
+  }
+
+  .feature > img {
+    width: 0.8rem;
+  }
+
+  .plans > :nth-child(2) > button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
