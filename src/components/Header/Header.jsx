@@ -1,62 +1,60 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Correct import for React Router Link
+import React, { useState } from "react";
 import "./Header.css";
+import Bars from "../../assects/bars.png";
 import Logo from "../../assects/logo.png";
-import bars from "../../assects/bars.png";
-// import link from "link-react";
+import { Link } from "react-router-dom";
+// import { Link } from "react-scroll";
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [MenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const mobile = window.innerWidth <= 768 ? true : false;
+  const [menuOpened, setMenuOpened] = useState(false);
 
   return (
     <div className="Header">
-      <img src={Logo} alt="logo" className="logo" />
-      {/* Mobile Menu Toggle Button */}
-      {MenuOpen === false && isMobile ? (
+      <img src={Logo} alt="Logo" className="logo" />
+      {menuOpened === false && mobile === true ? (
         <div
           style={{
             backgroundColor: "var(--appColor)",
             padding: "0.5rem",
             borderRadius: "5px",
           }}
-          onClick={() => setIsMenuOpen(true)}
-          aria-label="Open menu" // Accessibility
+          onClick={() => setMenuOpened(true)}
         >
           <img
-            src={bars}
+            src={Bars}
             alt="Menu"
             style={{ width: "1.5rem", height: "1.5rem" }}
           />
         </div>
       ) : (
-        <ul className={`header-menu ${MenuOpen ? "open" : ""}`}>
-          <li onClick={() => setIsMenuOpen(false)}>
-            <Link to="/">Home</Link> {/* Use Link component */}
+        <ul className={`header-menu ${menuOpened ? "open" : ""}`}>
+          <li onClick={() => setMenuOpened(false)}>
+            <Link to="home" smooth={true} duration={500} className="link">
+              Home
+            </Link>
           </li>
-          <li onClick={() => setIsMenuOpen(false)}>
-            <Link to="programs">Programs</Link>
+          <li onClick={() => setMenuOpened(false)}>
+            <Link to="programs" smooth={true} duration={500} className="link">
+              Programs
+            </Link>
           </li>
-          <li onClick={() => setIsMenuOpen(false)}>
-            <Link to="reason">Why Us</Link>
+          <li onClick={() => setMenuOpened(false)}>
+            <Link to="reason" smooth={true} duration={500} className="link">
+              Why Us
+            </Link>
           </li>
-          <li onClick={() => setIsMenuOpen(false)}>
-            <Link to="Plans">Plans</Link>
+          <li onClick={() => setMenuOpened(false)}>
+            <Link to="plans" smooth={true} duration={500} className="link">
+              Plans
+            </Link>
           </li>
-          <li>
+          <li onClick={() => setMenuOpened(false)}>
             <Link
-              onClick={() => setIsMenuOpen(false)}
-              to="Testimonials"
-              smooth="true" // Adjust for smooth scrolling if needed
+              to="testimonials"
+              smooth={true}
+              duration={500}
+              className="link"
             >
               Testimonials
             </Link>
